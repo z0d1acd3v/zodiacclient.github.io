@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zodiac Client (pre-release)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Madimi+One&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Madimi One', cursive;
+            background-image: url("https://img.freepik.com/premium-photo/night-sky-stars-galaxies-sky-dusk_494741-51807.jpg?size=626&ext=jpg&ga=GA1.1.1395880969.1709856000&semt=ais");
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            position: relative;
+        }
+        .zodiac-text {
+            font-size: 90px;
+            margin-top: -450px;
+            transition: color 0.3s;
+            z-index: 1;
+        }
+        .hover-bar {
+            position: absolute;
+            top: -5px;
+            left: 0;
+            height: 100%;
+            width: 5px;
+            background-color: white;
+            z-index: 0;
+        }
+        .horizontal-bar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background-color: white;
+            z-index: 0;
+        }
+        .horizontal-bar-bottom {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background-color: white;
+            z-index: 0;
+        }
+        .vertical-bar-right {
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 100vh;
+            width: 5px;
+            background-color: white;
+            z-index: 0;
+        }
+        .zodiac-text:hover {
+            color: black;
+        }
+        .dropdown {
+            position: absolute;
+            top: calc(50% + 55px); /* Position just below the play button */
+            width: 200px;
+            z-index: 1;
+            text-align: center;
+        }
+        .dropdown select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 10px; /* Rounded corners */
+            border: none;
+            background-color: #851e3e;
+            color: white;
+            font-size: 16px;
+        }
+        .dropdown select:hover {
+            background-color: #851e3e;
+        }
+        .play-button {
+            font-family: 'Madimi One', cursive;
+            font-size: 24px;
+            padding: 10px 20px;
+            background-color: #851e3e;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s, box-shadow 0.3s;
+            z-index: 1;
+            position: absolute;
+            top: calc(50% - 25px); /* Move down 25px */
+            left: 50%; /* Center horizontally */
+            transform: translateX(-50%); /* Center horizontally */
+        }
+        .play-button:hover {
+            background-color: #851e3e;
+        }
+        .play-button:active {
+            background-color: #851e3e;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        .footer {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="hover-bar"></div>
+    <div class="horizontal-bar"></div>
+    <div class="horizontal-bar-bottom"></div>
+    <div class="vertical-bar-right"></div>
+    <div class="dropdown">
+        <select id="version-select">
+            <option value="option0">1.1</option>
+            <option value="option1">1.2</option>
+            <option value="option2">1.3</option>
+            <option value="option3">1.4</option>
+            <option value="option4">1.4.1</option>
+            <option value="option5">1.4.1 Halloween</option>
+            <option value="option6">1.4.2</option>
+            <option value="option7">1.4.3</option>
+            <option value="option8">1.4.4</option>
+            <option value="option9">Latest</option>
+            <option value="option10">OvO 2 Beta</option>
+        </select>
+    </div>
+    <button class="play-button" id="play-button">Play</button>
+    <div class="zodiac-text">Zodiac Client</div>
+    <div class="footer">
+        Made By piesimp <br>
+        Discord: piesimp <br>
+        Gmail: peisipm@gmail.com <br>
+        Discord: <a href="https://discord.gg/pJaYk3vQ">https://discord.gg/pJaYk3vQ</a>
+    </div>
+
+    <script>
+        document.getElementById("play-button").addEventListener("click", function() {
+            var versionSelect = document.getElementById("version-select");
+            var selectedOption = versionSelect.options[versionSelect.selectedIndex].value;
+            var url;
+            switch (selectedOption) {
+                case "option0":
+                    url = "https://dedragames.com/games/ovo/1.1/";
+                    break;
+                case "option1":
+                    url = "https://dedragames.com/games/ovo/1.2/";
+                    break;
+                case "option2":
+                    url = "https://dedragames.com/games/ovo/1.3/";
+                    break;
+                case "option3":
+                    url = "https://dedragames.com/games/ovo/1.4/";
+                    break;
+                case "option4":
+                    url = "https://dedragames.com/games/ovo/1.4.1/";
+                    break;
+                case "option5":
+                    url = "https://dedragames.com/games/ovo/1.4.1.Halloween/";
+                    break;
+                case "option6":
+                    url = "https://dedragames.com/games/ovo/1.4.2/";
+                    break;
+                case "option7":
+                    url = "https://dedragames.com/games/ovo/1.4.3/";
+                    break;
+                case "option8":
+                    url = "https://dedragames.com/games/ovo/1.4.4/";
+                    break;
+                case "option9":
+                    url = "https://dedragames.com/games/ovo/1.4.4/";
+                    break;
+                case "option10":
+                    url = "https://dedragames.com/games/ovo2/0.2alpha/";
+                    break;
+            }
+            // Open the URL
+            if (url) {
+                window.open(url);
+            }
+        });
+    </script>
+</body>
+</html>
