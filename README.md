@@ -1,1 +1,1 @@
-# zodiacclient.github.io
+Zodiac Client is the dedicated launcher for OvO, offering seamless access to its captivating world. Stay updated on the latest game features and events, enjoying effortless navigation and immersion into the thrilling OvO universe. Experience the excitement with Zodiac Client today.
